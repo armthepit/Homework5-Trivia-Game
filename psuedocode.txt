@@ -1,0 +1,94 @@
+Variables 
+
+Birds Object (50)
+	State Number
+	State Name
+	Bird Name
+	Bird Photo
+	Bird Sound
+	Bird Information
+	Question asked.
+
+Wins
+Loses
+Out Of Time
+Choices array array of choices
+	choice number
+	correct/incorrect
+
+HTML Layout
+
+Background is wallpaper of birds
+
+Start Screen 
+
+Title - Logo Image
+
+Show state map of birds over image Start Game Button
+
+Click and show first question
+
+
+Function: New Game
+
+Clear question asked filled in bird object
+clear total wins, loses, and out of times
+Show start game button
+Call questions function
+
+
+Function: Questions
+
+Clear choices array
+Reset question timer
+Random number 1-50 to select bird
+Check questions array to make sure question not asked before. If so get another random number.
+Random number 1 - 4 to place correct answer in a spot to quess.
+3 more random numbers to select the other choices and place in choices array
+Display choices with a hover effect of playing the bird sound
+Start time
+
+Function Game
+For next loop of 1 to 10 questions
+call question routine
+when looped thru all 10 questions
+display total wins, loses, and out of times
+display play again button
+
+JS Query Function Check Answer Click
+Call answer timer
+Display result of question - Correct/Incorrect/Out Of Time
+Show dird
+Show bird info
+
+JS Query Check click to see if correct answer clicked
+check to see if correct answer
+Update correct wins, loses, out of time counter.
+If out of time display out of time
+if correct display correct
+if incorrect display incorrect
+
+JS Query Set question timer
+Set time
+If out of time display out of time
+
+JS Query Set answer timer
+Set timer to show answer
+when time runs down call next question
+
+JS Query Hover Effect for choice
+Play bird sound when mouse over question answer choices
+
+
+
+
+
+
+
+
+
+
+
+
+Answer Time
+Set answer before next question
