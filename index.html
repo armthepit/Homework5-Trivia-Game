@@ -4,31 +4,47 @@
 	<meta charset="utf-8">
 
 	<title>Trivia Game</title>
-	<link rel="stylesheet" href="assets/css/style.css">
-
-	<!-- Added link to the jQuery Library -->
-	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Added link to the jQuery Library -->
+	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 </head>
 <body>
-	
-	<!-- Game Logo -->
-
-	<header>
-
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<img src="assets/images/game_logo.png" alt="Game Logo" class="center-block img-responsive">
+	<div id="wrap">
+		<!-- Game Logo -->
+		<header>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<img src="assets/images/game_logo.png" alt="Game Logo" class="center-block img-responsive">
+					</div>
 				</div>
 			</div>
+		</header>
+		<!-- Main Content -->
+		<div class="container">
+			<div id="section">
+				<div class="row">
+					<div class="col-md-12 center-block">
+						<img src="assets/images/usa_baldeagle.jpg" alt="Bald Eagle" class="center-block img-responsive img-rounded">
+
+						<h1 class="text-center">Think you know you're state birds?</h1>
+						<h2 class="text-center">Take our quiz to find out.</h2>
+						<div class="text-center">
+							<button type="button" class="btn-custom">Begin Quiz</button>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>	
 		</div>
-		
-	</header>
-
-
+	</div>
 	<script src="triviagame.js"></script>	
 </body>
 </html>
