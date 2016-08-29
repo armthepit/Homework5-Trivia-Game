@@ -1,0 +1,6 @@
+1,Alabama, Northern Flicker,The Northern Flicker was designated the official state bird of Alabama in 1927.
+2,Alaska,Willow Ptarmigan,The Willow Ptarmigan was designated the official state bird of Alaska in 1955.
+3,Arizona,Cactus Wren,The Cactus Wren was designated the official state bird of Arizona in 1931.
+4,California,Valley Quail,The California Valley Quail was designated the official state of California in 1931.
+
+ 
