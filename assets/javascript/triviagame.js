@@ -14,7 +14,8 @@ $(document).ready(function(){
 
 	var bird = [
 	{"number":0,"state":"Alabama","birdName":"Northern Flicker","photo":"assets/images/alabama_northernflicker.jpg","sound":"assets/audio/alabama_northernflicker.mp3","year":1927},
-	{"number":1,"state":"Alaska","birdName":"Northern Flicker","photo":"assets/images/alabama_northernflicker.jpg","sound":"assets/audio/alabama_northernflicker.mp3","year":1927}
+	{"number":1,"state":"Alaska","birdName":"Willow Ptarmigan","photo":"assets/images/alaska_willowptarmigan.jpg","sound":"alaska_willowptarmigan.mp3","year":1955}
+	
 	];
 
 	console.log(bird[1].photo);
@@ -69,10 +70,11 @@ $(document).ready(function(){
 				}
 			};
 			$('#question').html('');
-			$('quizbutton').html('');
+			$('#beginQuizzButton').remove();
 			for(var i=0; i < 4; i++) {
 				currid = '#answer'+i;
-				newHtml = '<img src="'+bird[currentAnswers[i]].photo+'" alt="'+bird[currentAnswers[i]].birdName+'" class="thumbnail">';			
+				newHtml = '<img src="'+bird[currentAnswers[i]].photo+'" alt="'+bird[currentAnswers[i]].birdName+'" class="thumbnail center-block">';			
+				newHtml = newHtml + '<caption class="text-center">'+bird[currentAnswers[i]].birdName+'</caption>';
 				$(currid).html(newHtml);
 			};
 		}

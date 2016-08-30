@@ -6,7 +6,7 @@ Birds Object (50)
 	Bird Name
 	Bird Photo
 	Bird Sound
-	Bird Information
+	Bird Year
 	Question asked.
 
 Wins
@@ -83,12 +83,3 @@ Play bird sound when mouse over question answer choices
 
 
 
-
-
-
-
-
-
-
-Answer Time
-Set answer before next question
