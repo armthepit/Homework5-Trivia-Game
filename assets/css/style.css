@@ -30,6 +30,7 @@ body {
 	width: 100%;
 	max-width: 960px;
 	margin: 0 auto;
+	padding: 10px;
 	clear: both;
 }
 
@@ -57,5 +58,7 @@ h1, h2, h3 {
   padding: 0 20px 0 20px;
 }
 
+
+// Front Page Styling
 
 
