@@ -59,6 +59,10 @@ h1, h2, h3 {
 }
 
 
-// Front Page Styling
+/* Front Page Styling */
 
+/* Questions Styling
 
+.answer {
+	display: inline-block;
+}
