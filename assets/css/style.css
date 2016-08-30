@@ -38,5 +38,24 @@ h1, h2, h3 {
 	margin: 5px 0 5px 0;
 }
 
+.btn-custom {
+  background-color: #002868;
+  border-color: #002868;
+  border-radius: 8px;
+  color: #ffffff;
+  padding: 0 20px 0 20px;
+}
 
- 
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active {
+  background-color: #ffffff;
+  border-color: #002868;
+  border-radius: 8px;
+  color: #002868;
+  padding: 0 20px 0 20px;
+}
+
+
+
