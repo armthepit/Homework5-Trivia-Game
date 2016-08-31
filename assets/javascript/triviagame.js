@@ -14,12 +14,12 @@ $(document).ready(function(){
 
 	var bird = [
 	{"number":0,"state":"Alabama","birdName":"Northern Flicker","photo":"assets/images/alabama_northernflicker.jpg","sound":"assets/audio/alabama_northernflicker.mp3","year":1927},
-	{"number":1,"state":"Alaska","birdName":"Willow Ptarmigan","photo":"assets/images/alaska_willowptarmigan.jpg","sound":"alaska_willowptarmigan.mp3","year":1955}
-	
+	{"number":1,"state":"Alaska","birdName":"Willow Ptarmigan","photo":"assets/images/alaska_willowptarmigan.jpg","sound":"alaska_willowptarmigan.mp3","year":1955},
+	{"number":2,"state":"Arizona","birdName":"Cactus Wren","photo":"assets/images/arizona_cactuswren.jpg","sound":"arizona_cactuswren.mp3","year":1931},
+	{"number":3,"state":"California","birdName":"Valley Quail","photo":"assets/images/california_californiavalleyquail.jpg","sound":"california_californiavalleyquail.mp3","year":1931},
 	];
 
-	console.log(bird[1].photo);
-
+	
 /*
 	var alabama = new Bird(0,"Alabama","Northern Flicker","assets/images/alabama_northerflicker.jpg","assets/audio/alabama_northernflicker.mp3",1927);
 	var alaska = new Bird(1,"Alaska","Willow Ptarmigan","assets/images/alaska_willowptarmigan.jpg","assets/audio/alaska_willowptarmigan.mp3",1955);
@@ -53,7 +53,7 @@ $(document).ready(function(){
 		if (numberQuestions < 11) {
 			// Random number to find the next question. Compare to verify question not asked before.
 			do {
-				currentQuestion = Math.round(Math.random()*1); //Change back to 49 when all birds loaded.
+				currentQuestion = Math.round(Math.random()*(bird.length-1)); //Change back to 49 when all birds loaded.
 			} while (questionsAsked.indexOf(currentQuestion) > -1);
 			// Increment number of questions asked
 			numberQuestions++
@@ -65,7 +65,7 @@ $(document).ready(function(){
 			for(var i=0; i < 4; i++) {
 				if (currentAnswers[i] === -1) {
 					do {
-						currentAnswers[i] = Math.round(Math.random()*1); //Change back to 49 when all birds loaded.
+						currentAnswers[i] = Math.round(Math.random()*(bird.length-1)); //Change back to 49 when all birds loaded.
 					} while (currentAnswers[i] === currentQuestion);
 				}
 			};
