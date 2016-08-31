@@ -69,7 +69,7 @@ $(document).ready(function(){
 			for(var i=0; i < 4; i++) {
 				currid = '#answer'+i;
 				newHtml = '<img src="'+bird[currentAnswers[i]].photo+'" alt="'+bird[currentAnswers[i]].birdName+'" class="thumbnail center-block">';			
-				newHtml = newHtml + '<caption class="text-center">'+bird[currentAnswers[i]].birdName+'</caption>';
+				newHtml = newHtml + '<h3 class="text-center">'+bird[currentAnswers[i]].birdName+'</h3>';
 				$(currid).html(newHtml);
 			};
 		}
