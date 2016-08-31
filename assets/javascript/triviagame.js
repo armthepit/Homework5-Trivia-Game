@@ -17,6 +17,8 @@ $(document).ready(function(){
 	{"number":1,"state":"Alaska","birdName":"Willow Ptarmigan","photo":"assets/images/alaska_willowptarmigan.jpg","sound":"alaska_willowptarmigan.mp3","year":1955},
 	{"number":2,"state":"Arizona","birdName":"Cactus Wren","photo":"assets/images/arizona_cactuswren.jpg","sound":"arizona_cactuswren.mp3","year":1931},
 	{"number":3,"state":"California","birdName":"Valley Quail","photo":"assets/images/california_californiavalleyquail.jpg","sound":"california_californiavalleyquail.mp3","year":1931},
+	{"number":4,"state":"Colorado","birdName":"Lark Bunting","photo":"assets/images/colorado_larkbunting.jpg","sound":"colorado_larkbunting.mp3","year":1931},
+	{"number":5,"state":"Connecticut","birdName":"American Robin","photo":"assets/images/connecticut_americanrobin.jpg","sound":"connecticut_americanrobin.mp3","year":1931},
 	];
 
 	
@@ -66,7 +68,7 @@ $(document).ready(function(){
 				if (currentAnswers[i] === -1) {
 					do {
 						currentAnswers[i] = Math.round(Math.random()*(bird.length-1)); //Change back to 49 when all birds loaded.
-					} while (currentAnswers[i] === currentQuestion);
+					} while (currentAnswers[i] === currentQuestion && currentAnswers.indexOf(currentAnswers[i]) !== -1);
 				}
 			};
 			$('#question').html('');
