@@ -63,7 +63,8 @@ $(document).ready(function(){
 					} while (currentAnswers[i] === currentQuestion || (currentAnswers.indexOf(currentAnswers[i]) !== i));
 				}
 			};
-			$('#question').html('');
+			newHtml = '<h1 class="text-center">What is the state bird of '+ bird[currentQuestion].state + '?</h1>';
+			$('#question').html(newHtml);
 			$('#beginQuizButton').remove();
 			for(var i=0; i < 4; i++) {
 				currid = '#answer'+i;
