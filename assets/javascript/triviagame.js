@@ -21,15 +21,6 @@ $(document).ready(function(){
 	{"number":5,"state":"Connecticut","birdName":"American Robin","photo":"assets/images/connecticut_americanrobin.jpg","sound":"connecticut_americanrobin.mp3","year":1931},
 	];
 
-	
-/*
-	var alabama = new Bird(0,"Alabama","Northern Flicker","assets/images/alabama_northerflicker.jpg","assets/audio/alabama_northernflicker.mp3",1927);
-	var alaska = new Bird(1,"Alaska","Willow Ptarmigan","assets/images/alaska_willowptarmigan.jpg","assets/audio/alaska_willowptarmigan.mp3",1955);
-	var arizona = new Bird(2,"Arizona","Cactus Wren","assets/images/arizona_cactuswren.jpg","assets/audio/arizona_cactuswren.mp3",1931);
-	var california = new Bird(3,"California","Valley Quail","assets/images/california_valleyquail.jpg","assets/audio/california_valleyquail.mp3",1931);
-	var colorado = new Bird(4,"Colorado","Lark Bunting","assets/images/colorado_larkbunting.jpg","assets/audio/colorado_larkbunting.mp3",1931);
-	var connecticut = new Bird(5,"Connecticut","American Robin","assets/images/connecticut_americanrobin.jpg","assets/audio/connecticut_americanrobin.mp3",1943);
-*/
 	// initalize variables and display opening screen to begin new game.
 
 	function newGame() {
@@ -73,7 +64,7 @@ $(document).ready(function(){
 				}
 			};
 			$('#question').html('');
-			$('#beginQuizzButton').remove();
+			$('#beginQuizButton').remove();
 			for(var i=0; i < 4; i++) {
 				currid = '#answer'+i;
 				newHtml = '<img src="'+bird[currentAnswers[i]].photo+'" alt="'+bird[currentAnswers[i]].birdName+'" class="thumbnail center-block">';			
