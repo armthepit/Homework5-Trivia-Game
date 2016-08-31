@@ -57,6 +57,7 @@ $(document).ready(function(){
 			do {
 				currentQuestion = Math.round(Math.random()*(bird.length-1)); //Change back to 49 when all birds loaded.
 			} while (questionsAsked.indexOf(currentQuestion) > -1);
+			console.log(bird[currentQuestion].birdName);
 			// Increment number of questions asked
 			numberQuestions++
 			// Push curent question into array of questions asked.
@@ -68,7 +69,7 @@ $(document).ready(function(){
 				if (currentAnswers[i] === -1) {
 					do {
 						currentAnswers[i] = Math.round(Math.random()*(bird.length-1)); //Change back to 49 when all birds loaded.
-					} while (currentAnswers[i] === currentQuestion && currentAnswers.indexOf(currentAnswers[i]) !== -1);
+					} while (currentAnswers[i] === currentQuestion || (currentAnswers.indexOf(currentAnswers[i]) !== i));
 				}
 			};
 			$('#question').html('');
