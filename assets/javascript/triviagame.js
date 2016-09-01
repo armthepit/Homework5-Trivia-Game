@@ -82,7 +82,16 @@ $(document).ready(function(){
 		}
 	}
 
-
+	function resetAnswers() {
+		for(var i=0; i < 4; i++) {
+			currid = '#answer_'+bird[currentAnswers[i]].number;
+			$(currid).attr('id', 'answer'+i);
+			currid='#answer'+i;
+			newHtml = '';
+			$(currid).html(newHtml);
+		};
+		question();
+	}
 
 	// check to begin quiz
 
