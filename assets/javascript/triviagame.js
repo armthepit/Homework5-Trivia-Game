@@ -53,9 +53,8 @@ $(document).ready(function(){
 			do {
 				currentQuestionAnswer = Math.round(Math.random()*(bird.length-1)); 
 			} while (questionsAsked.indexOf(currentQuestionAnswer) > -1);
-			/* console.log(bird[currentQuestionAnswer].birdName); */
-
 			// Push curent question into array of questions asked.
+			questionsAsked.push(currentQuestionAnswer);
 			// Random number to determine which position the correct answer will be in list of 4 possible answers
 			currentAnswers[Math.round(Math.random()*3)] = currentQuestionAnswer;
 			// loop thru to get 3 random numnber of wrong answers
@@ -117,10 +116,13 @@ $(document).ready(function(){
 		playerAnswer = $(this).attr("id").match(/[\d]+$/);
 		if(currentQuestionAnswer == playerAnswer) {
 			wins++;
+			newHtml = '<h1 class="text-center">Congratulations! Correct Answer</h3>';
 		} else {
 			loses++;
+			newHtml = '<h1 class="text-center">Condolences! Incorrect Answer</h3>';
 		};
-		resetAnswers();
+		$('#question').html(newHtml);
+		/*resetAnswers();*/
 	});		
 
 
