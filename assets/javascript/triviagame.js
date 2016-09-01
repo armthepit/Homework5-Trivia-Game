@@ -31,7 +31,7 @@ $(document).ready(function(){
 		loses = 0;
 		outoftimes = 0;
 		questionsAsked = [];
-		numberQuestions = 1;
+		numberQuestions = 0;
 		currentAnswers = [-1,-1,-1,-1];
 
 		//redraw intro screen
@@ -44,6 +44,7 @@ $(document).ready(function(){
 	// display question
 
 	function question() {
+		// Increment number of questions asked
 		numberQuestions++;
 		if (numberQuestions < 11) {
 
@@ -53,11 +54,8 @@ $(document).ready(function(){
 				currentQuestionAnswer = Math.round(Math.random()*(bird.length-1)); 
 			} while (questionsAsked.indexOf(currentQuestionAnswer) > -1);
 			/* console.log(bird[currentQuestionAnswer].birdName); */
-			// Increment number of questions asked
-			numberQuestions++
+
 			// Push curent question into array of questions asked.
-			questionsAsked.push(currentQuestionAnswer);
-			console.log(currentQuestionAnswer+' '+questionsAsked);
 			// Random number to determine which position the correct answer will be in list of 4 possible answers
 			currentAnswers[Math.round(Math.random()*3)] = currentQuestionAnswer;
 			// loop thru to get 3 random numnber of wrong answers
@@ -90,6 +88,7 @@ $(document).ready(function(){
 			newHtml = '';
 			$(currid).html(newHtml);
 		};
+		currentAnswers = [-1,-1,-1,-1];
 		question();
 	}
 
