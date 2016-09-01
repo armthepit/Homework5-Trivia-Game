@@ -5,7 +5,7 @@ $(document).ready(function(){
 	var wins = 0;
 	var loses = 0;
 	var outoftimes = 0;
-	var questionsAsked = [0,0,0,0,0,0,0,0,0,0];
+	var questionsAsked = [];
 	var numberQuestions = 1;
 	var currentQuestionAnswer = 0;
 	var currentAnswers = [-1,-1,-1,-1];
@@ -30,7 +30,7 @@ $(document).ready(function(){
 		wins = 0;
 		loses = 0;
 		outoftimes = 0;
-		questionsAsked = [0,0,0,0,0,0,0,0,0,0];
+		questionsAsked = [];
 		numberQuestions = 1;
 		currentAnswers = [-1,-1,-1,-1];
 
@@ -46,15 +46,18 @@ $(document).ready(function(){
 	function question() {
 		numberQuestions++;
 		if (numberQuestions < 11) {
+
+
 			// Random number to find the next question. Compare to verify question not asked before.
 			do {
 				currentQuestionAnswer = Math.round(Math.random()*(bird.length-1)); 
 			} while (questionsAsked.indexOf(currentQuestionAnswer) > -1);
-			console.log(bird[currentQuestionAnswer].birdName);
+			/* console.log(bird[currentQuestionAnswer].birdName); */
 			// Increment number of questions asked
 			numberQuestions++
 			// Push curent question into array of questions asked.
-			questionsAsked.push("currentQuestionAnswer");
+			questionsAsked.push(currentQuestionAnswer);
+			console.log(currentQuestionAnswer+' '+questionsAsked);
 			// Random number to determine which position the correct answer will be in list of 4 possible answers
 			currentAnswers[Math.round(Math.random()*3)] = currentQuestionAnswer;
 			// loop thru to get 3 random numnber of wrong answers
@@ -78,6 +81,8 @@ $(document).ready(function(){
 			};
 		}
 	}
+
+
 
 	// check to begin quiz
 
@@ -103,9 +108,13 @@ $(document).ready(function(){
 	$(document).on('click','.answer', function() {
 		playerAnswer = $(this).attr("id").match(/[\d]+$/);
 		if(currentQuestionAnswer == playerAnswer) {
-			console.log('You are correct');
+			wins++;
+		} else {
+			loses++;
 		};
-	});
+		resetAnswers();
+	});		
+
 
 
 
