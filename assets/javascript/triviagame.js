@@ -7,8 +7,9 @@ $(document).ready(function(){
 	var outoftimes = 0;
 	var questionsAsked = [0,0,0,0,0,0,0,0,0,0];
 	var numberQuestions = 1;
-	var currentquestion = 0;
+	var currentQuestionAnswer = 0;
 	var currentAnswers = [-1,-1,-1,-1];
+	var playerAnswer = -1;
 	var currid = 0;
 	var newHtml = '';
 	var birdSound = '';
@@ -47,24 +48,24 @@ $(document).ready(function(){
 		if (numberQuestions < 11) {
 			// Random number to find the next question. Compare to verify question not asked before.
 			do {
-				currentQuestion = Math.round(Math.random()*(bird.length-1)); 
-			} while (questionsAsked.indexOf(currentQuestion) > -1);
-			console.log(bird[currentQuestion].birdName);
+				currentQuestionAnswer = Math.round(Math.random()*(bird.length-1)); 
+			} while (questionsAsked.indexOf(currentQuestionAnswer) > -1);
+			console.log(bird[currentQuestionAnswer].birdName);
 			// Increment number of questions asked
 			numberQuestions++
 			// Push curent question into array of questions asked.
-			questionsAsked.push("currentQuestion");
+			questionsAsked.push("currentQuestionAnswer");
 			// Random number to determine which position the correct answer will be in list of 4 possible answers
-			currentAnswers[Math.round(Math.random()*3)] = currentQuestion;
+			currentAnswers[Math.round(Math.random()*3)] = currentQuestionAnswer;
 			// loop thru to get 3 random numnber of wrong answers
 			for(var i=0; i < 4; i++) {
 				if (currentAnswers[i] === -1) {
 					do {
 						currentAnswers[i] = Math.round(Math.random()*(bird.length-1)); 
-					} while (currentAnswers[i] === currentQuestion || (currentAnswers.indexOf(currentAnswers[i]) !== i));
+					} while (currentAnswers[i] === currentQuestionAnswer || (currentAnswers.indexOf(currentAnswers[i]) !== i));
 				}
 			};
-			newHtml = '<h1 class="text-center">What is the state bird of '+ bird[currentQuestion].state + '?</h1>';
+			newHtml = '<h1 class="text-center">What is the state bird of '+ bird[currentQuestionAnswer].state + '?</h1>';
 			$('#question').html(newHtml);
 			$('#beginQuizButton').remove();
 			for(var i=0; i < 4; i++) {
@@ -72,7 +73,6 @@ $(document).ready(function(){
 				newHtml = '<img src="'+bird[currentAnswers[i]].photo+'" alt="'+bird[currentAnswers[i]].birdName+'" class="thumbnail center-block">';			
 				newHtml = newHtml + '<h3 class="text-center">'+bird[currentAnswers[i]].birdName+'</h3>';
 				newHtml = newHtml + '<audio id="sound_'+bird[currentAnswers[i]].number+'"><source src="'+bird[currentAnswers[i]].sound+'" preload="auto"></audio>';
-				console.log(newHtml);
 				$(currid).html(newHtml);
 				$(currid).attr('id', 'answer_'+bird[currentAnswers[i]].number);
 			};
@@ -88,6 +88,7 @@ $(document).ready(function(){
 	// play bird sound when hovering over answer
 	
 	$(document).on('mouseenter','.answer',function() {
+		$('#sound_'+$(this).attr("id").match(/[\d]+$/)).currentTime = 0;
 		$('#sound_'+$(this).attr("id").match(/[\d]+$/)).trigger('play');
 	});
 
@@ -97,7 +98,14 @@ $(document).ready(function(){
 		$('#sound_'+$(this).attr("id").match(/[\d]+$/)).trigger('pause');
 	});
 
-
+	// check answer
+	
+	$(document).on('click','.answer', function() {
+		playerAnswer = $(this).attr("id").match(/[\d]+$/);
+		if(currentQuestionAnswer == playerAnswer) {
+			console.log('You are correct');
+		};
+	});
 
 
 
