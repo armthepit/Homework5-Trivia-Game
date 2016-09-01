@@ -15,11 +15,11 @@ $(document).ready(function(){
 
 	var bird = [
 	{"number":0,"state":"Alabama","birdName":"Northern Flicker","photo":"assets/images/alabama_northernflicker.jpg","sound":"assets/audio/alabama_northernflicker.mp3","year":1927},
-	{"number":1,"state":"Alaska","birdName":"Willow Ptarmigan","photo":"assets/images/alaska_willowptarmigan.jpg","sound":"alaska_willowptarmigan.mp3","year":1955},
-	{"number":2,"state":"Arizona","birdName":"Cactus Wren","photo":"assets/images/arizona_cactuswren.jpg","sound":"arizona_cactuswren.mp3","year":1931},
-	{"number":3,"state":"California","birdName":"Valley Quail","photo":"assets/images/california_californiavalleyquail.jpg","sound":"california_californiavalleyquail.mp3","year":1931},
-	{"number":4,"state":"Colorado","birdName":"Lark Bunting","photo":"assets/images/colorado_larkbunting.jpg","sound":"colorado_larkbunting.mp3","year":1931},
-	{"number":5,"state":"Connecticut","birdName":"American Robin","photo":"assets/images/connecticut_americanrobin.jpg","sound":"connecticut_americanrobin.mp3","year":1931},
+	{"number":1,"state":"Alaska","birdName":"Willow Ptarmigan","photo":"assets/images/alaska_willowptarmigan.jpg","sound":"assets/audio/alaska_willowptarmigan.mp3","year":1955},
+	{"number":2,"state":"Arizona","birdName":"Cactus Wren","photo":"assets/images/arizona_cactuswren.jpg","sound":"assets/audio/arizona_cactuswren.mp3","year":1931},
+	{"number":3,"state":"California","birdName":"Valley Quail","photo":"assets/images/california_californiavalleyquail.jpg","sound":"assets/audio/california_californiavalleyquail.mp3","year":1931},
+	{"number":4,"state":"Colorado","birdName":"Lark Bunting","photo":"assets/images/colorado_larkbunting.jpg","sound":"assets/audio/colorado_larkbunting.mp3","year":1931},
+	{"number":5,"state":"Connecticut","birdName":"American Robin","photo":"assets/images/connecticut_americanrobin.jpg","sound":"assets/audio/connecticut_americanrobin.mp3","year":1931},
 	];
 
 	// initalize variables and display opening screen to begin new game.
@@ -71,7 +71,7 @@ $(document).ready(function(){
 				currid = '#answer'+i;
 				newHtml = '<img src="'+bird[currentAnswers[i]].photo+'" alt="'+bird[currentAnswers[i]].birdName+'" class="thumbnail center-block">';			
 				newHtml = newHtml + '<h3 class="text-center">'+bird[currentAnswers[i]].birdName+'</h3>';
-				newHtml = newHtml + '<audio id="sound_'+bird[currentAnswers[i]].number+'"><source src="assets/audio/'+bird[currentAnswers[i]].sound+'" preload="auto"></audio>';
+				newHtml = newHtml + '<audio id="sound_'+bird[currentAnswers[i]].number+'"><source src="'+bird[currentAnswers[i]].sound+'" preload="auto"></audio>';
 				console.log(newHtml);
 				$(currid).html(newHtml);
 				$(currid).attr('id', 'answer_'+bird[currentAnswers[i]].number);
@@ -85,9 +85,17 @@ $(document).ready(function(){
 		question();
 	});
 
+	// play bird sound when hovering over answer
+	
+	$(document).on('mouseenter','.answer',function() {
+		$('#sound_'+$(this).attr("id").match(/[\d]+$/)).trigger('play');
+	});
 
-
-
+	// stop bird sound when leaving answer
+	
+	$(document).on('mouseleave','.answer',function() {
+		$('#sound_'+$(this).attr("id").match(/[\d]+$/)).trigger('pause');
+	});
 
 
 
