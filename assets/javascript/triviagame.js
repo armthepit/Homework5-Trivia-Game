@@ -11,6 +11,7 @@ $(document).ready(function(){
 	var currentAnswers = [-1,-1,-1,-1];
 	var currid = 0;
 	var newHtml = '';
+	var birdSound = '';
 
 	var bird = [
 	{"number":0,"state":"Alabama","birdName":"Northern Flicker","photo":"assets/images/alabama_northernflicker.jpg","sound":"assets/audio/alabama_northernflicker.mp3","year":1927},
@@ -46,7 +47,7 @@ $(document).ready(function(){
 		if (numberQuestions < 11) {
 			// Random number to find the next question. Compare to verify question not asked before.
 			do {
-				currentQuestion = Math.round(Math.random()*(bird.length-1)); //Change back to 49 when all birds loaded.
+				currentQuestion = Math.round(Math.random()*(bird.length-1)); 
 			} while (questionsAsked.indexOf(currentQuestion) > -1);
 			console.log(bird[currentQuestion].birdName);
 			// Increment number of questions asked
@@ -59,7 +60,7 @@ $(document).ready(function(){
 			for(var i=0; i < 4; i++) {
 				if (currentAnswers[i] === -1) {
 					do {
-						currentAnswers[i] = Math.round(Math.random()*(bird.length-1)); //Change back to 49 when all birds loaded.
+						currentAnswers[i] = Math.round(Math.random()*(bird.length-1)); 
 					} while (currentAnswers[i] === currentQuestion || (currentAnswers.indexOf(currentAnswers[i]) !== i));
 				}
 			};
@@ -70,6 +71,8 @@ $(document).ready(function(){
 				currid = '#answer'+i;
 				newHtml = '<img src="'+bird[currentAnswers[i]].photo+'" alt="'+bird[currentAnswers[i]].birdName+'" class="thumbnail center-block">';			
 				newHtml = newHtml + '<h3 class="text-center">'+bird[currentAnswers[i]].birdName+'</h3>';
+				newHtml = newHtml + '<audio id="sound_'+bird[currentAnswers[i]].number+'"><source src="assets/audio/'+bird[currentAnswers[i]].sound+'" preload="auto"></audio>';
+				console.log(newHtml);
 				$(currid).html(newHtml);
 				$(currid).attr('id', 'answer_'+bird[currentAnswers[i]].number);
 			};
@@ -81,9 +84,6 @@ $(document).ready(function(){
 	$('#beginQuizButton').on("click", function() {
 		question();
 	});
-
-	// play bird sound when mouse over answer
-
 
 
 
