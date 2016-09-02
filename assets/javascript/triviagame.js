@@ -98,8 +98,10 @@ $(document).ready(function(){
 		newHtml = newHtml + '<h3 class="text-center">'+bird[currentQuestionAnswer].birdName+'</h3>';
 		newHtml = newHtml + '<audio id="sound_'+currentQuestionAnswer+'"><source src="'+bird[currentQuestionAnswer].sound+'" preload="auto"></audio>';
 		$('#answer0').html(newHtml);
-
-		question();
+		newHtml = '<h3>Official State Bird of'+bird[currentQuestionAnswer].state+'</h3>';
+		newHtml = '<p class="text-left">The '+bird[currentQuestionAnswer].birdName+' was designated the official state bird of '+bird[currentQuestionAnswer].state+' in '+bird[currentQuestionAnswer].year+'.</p>';
+		$('#answer1').html(newHtml);
+		/*question();*/
 	}
 
 	// check to begin quiz
