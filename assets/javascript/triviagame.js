@@ -11,6 +11,7 @@ $(document).ready(function(){
 	var currentAnswers = [-1,-1,-1,-1];
 	var playerAnswer = -1;
 	var answerResult = '';
+	var answerAudio = '';
 	var currid = 0;
 	var newHtml = '';
 	var birdSound = '';
@@ -96,7 +97,7 @@ $(document).ready(function(){
 
 	// Show Answer
 	function showAnswer () {
-
+		answerAudio.play();
 		newHtml = answerResult + '<img src="'+bird[currentQuestionAnswer].photo+'" alt="'+bird[currentQuestionAnswer].birdName+'" class="center-block img-responsive img-rounded">';
 		newHtml = newHtml + '<h3 class="text-center">'+bird[currentQuestionAnswer].birdName+'</h3>';
 		newHtml = newHtml + '<p class="text-center">The '+bird[currentQuestionAnswer].birdName+' was designated the official state bird of '+bird[currentQuestionAnswer].state+' in '+bird[currentQuestionAnswer].year+'.</p>';
@@ -153,9 +154,11 @@ $(document).ready(function(){
 		if(currentQuestionAnswer == playerAnswer) {
 			wins++;
 			answerResult = '<h1 class="text-center">Correct Answer</h1>';
+			answerAudio = new Audio('assets/audio/correctanswer.mp3');
 		} else {
 			loses++;
 			answerResult = '<h1 class="text-center">Incorrect Answer</h1>';
+			answerAudio = new Audio('assets/audio/incorrectanswer.mp3');
 		};
 		resetAnswers();
 	});		
