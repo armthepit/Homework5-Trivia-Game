@@ -40,6 +40,8 @@ $(document).ready(function(){
 		newHtml = newHtml + '<h1 class="text-center">Think you know you\'re state birds?</h1>';
 		newHtml = newHtml + '<h2 class="text-center">Take our quiz to find out.</h2>';
 		$('#question').html(newHtml);
+		newHtml = '<button type="button" id="beginQuizButton" class="btn-custom center-block">Begin Quiz</button>';
+		$('#quizButton').html(newHtml);
 	}
 
 	// display question
@@ -128,7 +130,7 @@ $(document).ready(function(){
 
 	// check to begin quiz
 
-	$('#beginQuizButton').on("click", function() {
+	$(document).on("click", '#beginQuizButton',function() {
 		question();
 	});
 
