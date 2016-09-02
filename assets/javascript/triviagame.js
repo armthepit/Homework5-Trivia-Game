@@ -116,9 +116,15 @@ $(document).ready(function(){
 		newHtml = newHtml + '<h3 class="text-center">Wins: '+wins+'.</h3>';
 		newHtml = newHtml + '<h3 class="text-center">Loses: '+loses+'.</h3>';
 		newHtml = newHtml + '<h3 class="text-center">Out Of Time: '+outOfTimes+'.</h3>';
-		$('#question').html(newHtml);			
+		$('#question').html(newHtml);	
+		setTimeout(newQuizTimer, 1000 * 5);		
 	}
- 
+
+	// New Quiz Timer
+
+	function newQuizTimer() {
+		newGame();
+	} 
 
 	// check to begin quiz
 
