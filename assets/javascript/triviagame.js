@@ -7,6 +7,8 @@ $(document).ready(function(){
 	var outOfTimes = 0;
 	var questionsAsked = [];
 	var numberQuestions = 0;
+	var remainingQuestionTime = 30;
+	var counter = 0;
 	var currentQuestionAnswer = 0;
 	var currentAnswers = [-1,-1,-1,-1];
 	var playerAnswer = -1;
@@ -31,7 +33,7 @@ $(document).ready(function(){
 		// reset variables
 		wins = 0;
 		loses = 0;
-		outoftimes = 0;
+		outOfTimes = 0;
 		questionsAsked = [];
 		numberQuestions = 0;
 		currentAnswers = [-1,-1,-1,-1];
@@ -51,8 +53,6 @@ $(document).ready(function(){
 		// Increment number of questions asked
 		numberQuestions++;
 		if (numberQuestions < bird.length + 1) {
-
-
 			// Random number to find the next question. Compare to verify question not asked before.
 			do {
 				currentQuestionAnswer = Math.round(Math.random()*(bird.length-1)); 
@@ -80,9 +80,39 @@ $(document).ready(function(){
 				$(currid).html(newHtml);
 				$(currid).attr({'data-index': bird[currentAnswers[i]].index});
 			};
+			questionTimer();
 		} else {
 			quizResults();
 		}
+	}
+
+	//Sets the 30sec time for each question
+    function questionTimer(){
+        counter = setInterval(countdown, 1000);
+    }	
+
+	// The question timer countdown function
+	function countdown(){
+	    // Decrease remaining time by one.
+	    remainingQuestionTime--;
+	    // Show the number in the #show-number tag.
+	    $('#questionTimerDisplay').html('<h3 class="text-center">Time Remaining: ' + remainingQuestionTime + '</h3>');
+
+	    // Check to see if time has run out answering question
+	    if (remainingQuestionTime === 0){
+	        // ...run the stop function.
+	        outOfTime();
+	    }
+	}
+
+
+	function outOfTime() {
+		clearInterval(counter);
+		remainingQuestionTime = 30;
+		outOfTimes++;
+		answerResult = '<h1 class="text-center">Out Of Time</h1>';
+		answerAudio = new Audio('assets/audio/incorrectanswer.mp3');
+		resetAnswers();
 	}
 
 	function resetAnswers() {
@@ -101,7 +131,8 @@ $(document).ready(function(){
 		newHtml = answerResult + '<img src="'+bird[currentQuestionAnswer].photo+'" alt="'+bird[currentQuestionAnswer].birdName+'" class="center-block img-responsive img-rounded">';
 		newHtml = newHtml + '<h3 class="text-center">'+bird[currentQuestionAnswer].birdName+'</h3>';
 		newHtml = newHtml + '<p class="text-center">The '+bird[currentQuestionAnswer].birdName+' was designated the official state bird of '+bird[currentQuestionAnswer].state+' in '+bird[currentQuestionAnswer].year+'.</p>';
-		$('#question').html(newHtml);		
+		$('#question').html(newHtml);
+		$('#questionTimerDisplay').html('');		
 		setTimeout(nextQuestionTimer, 1000 * 5);
 		
 	}
@@ -150,6 +181,8 @@ $(document).ready(function(){
 	// check answer
 	
 	$(document).on('click','.answer', function() {
+		clearInterval(counter);
+		remainingQuestionTime = 30;
 		playerAnswer = $(this).attr("data-index");
 		if(currentQuestionAnswer == playerAnswer) {
 			wins++;
