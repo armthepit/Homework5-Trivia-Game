@@ -1,6 +1,8 @@
-1,Alabama, Northern Flicker,The Northern Flicker was designated the official state bird of Alabama in 1927.
-2,Alaska,Willow Ptarmigan,The Willow Ptarmigan was designated the official state bird of Alaska in 1955.
-3,Arizona,Cactus Wren,The Cactus Wren was designated the official state bird of Arizona in 1931.
-4,California,Valley Quail,The California Valley Quail was designated the official state of California in 1931.
-
- 
+{"index":0,"state":"Alabama","birdName":"Northern Flicker","photo":"assets/images/alabama_northernflicker.jpg","sound":"assets/audio/alabama_northernflicker.mp3","year":1927},
+{"index":1,"state":"Alaska","birdName":"Willow Ptarmigan","photo":"assets/images/alaska_willowptarmigan.jpg","sound":"assets/audio/alaska_willowptarmigan.mp3","year":1955},
+{"index":2,"state":"Arizona","birdName":"Cactus Wren","photo":"assets/images/arizona_cactuswren.jpg","sound":"assets/audio/arizona_cactuswren.mp3","year":1931},
+{"index":3,"state":"California","birdName":"Valley Quail","photo":"assets/images/california_californiavalleyquail.jpg","sound":"assets/audio/california_californiavalleyquail.mp3","year":1931},
+{"index":4,"state":"Colorado","birdName":"Lark Bunting","photo":"assets/images/colorado_larkbunting.jpg","sound":"assets/audio/colorado_larkbunting.mp3","year":1931},
+{"index":5,"state":"Connecticut","birdName":"American Robin","photo":"assets/images/connecticut_americanrobin.jpg","sound":"assets/audio/connecticut_americanrobin.mp3","year":1931},
+{"index":6,"state":"Delaware","birdName":"Blue Hen Chicken","photo":"assets/images/delaware_bluehenchicken.jpg","sound":assets/audio/delaware_bluehenchicken.mp3","year":1939},
+{"index":7,"state":"Florida","birdName":"Mockingbird","photo":"assets/images/florida_mockingbird.jpg","sound":"assets/audio/florida_mockingbird.mp3","year":1927},

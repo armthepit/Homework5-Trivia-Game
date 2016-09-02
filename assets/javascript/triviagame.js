@@ -2,9 +2,9 @@ $(document).ready(function(){
 
 	// Variables
 
-	var wins = 0;
-	var loses = 0;
-	var outOfTimes = 0;
+	var correctAnswers = 0;
+	var incorrectAnswers = 0;
+	var outOfTimeAnswers = 0;
 	var questionsAsked = [];
 	var numberQuestions = 0;
 	var remainingQuestionTime = 30;
@@ -19,21 +19,23 @@ $(document).ready(function(){
 	var birdSound = '';
 
 	var bird = [
-	{"index":0,"state":"Alabama","birdName":"Northern Flicker","photo":"assets/images/alabama_northernflicker.jpg","sound":"assets/audio/alabama_northernflicker.mp3","year":1927},
-	{"index":1,"state":"Alaska","birdName":"Willow Ptarmigan","photo":"assets/images/alaska_willowptarmigan.jpg","sound":"assets/audio/alaska_willowptarmigan.mp3","year":1955},
-	{"index":2,"state":"Arizona","birdName":"Cactus Wren","photo":"assets/images/arizona_cactuswren.jpg","sound":"assets/audio/arizona_cactuswren.mp3","year":1931},
-	{"index":3,"state":"California","birdName":"Valley Quail","photo":"assets/images/california_californiavalleyquail.jpg","sound":"assets/audio/california_californiavalleyquail.mp3","year":1931},
-	{"index":4,"state":"Colorado","birdName":"Lark Bunting","photo":"assets/images/colorado_larkbunting.jpg","sound":"assets/audio/colorado_larkbunting.mp3","year":1931},
-	{"index":5,"state":"Connecticut","birdName":"American Robin","photo":"assets/images/connecticut_americanrobin.jpg","sound":"assets/audio/connecticut_americanrobin.mp3","year":1931},
+		{"index":0,"state":"Alabama","birdName":"Northern Flicker","photo":"assets/images/alabama_northernflicker.jpg","sound":"assets/audio/alabama_northernflicker.mp3","year":1927},
+		{"index":1,"state":"Alaska","birdName":"Willow Ptarmigan","photo":"assets/images/alaska_willowptarmigan.jpg","sound":"assets/audio/alaska_willowptarmigan.mp3","year":1955},
+		{"index":2,"state":"Arizona","birdName":"Cactus Wren","photo":"assets/images/arizona_cactuswren.jpg","sound":"assets/audio/arizona_cactuswren.mp3","year":1931},
+		{"index":3,"state":"California","birdName":"Valley Quail","photo":"assets/images/california_californiavalleyquail.jpg","sound":"assets/audio/california_californiavalleyquail.mp3","year":1931},
+		{"index":4,"state":"Colorado","birdName":"Lark Bunting","photo":"assets/images/colorado_larkbunting.jpg","sound":"assets/audio/colorado_larkbunting.mp3","year":1931},
+		{"index":5,"state":"Connecticut","birdName":"American Robin","photo":"assets/images/connecticut_americanrobin.jpg","sound":"assets/audio/connecticut_americanrobin.mp3","year":1931},
+		{"index":6,"state":"Delaware","birdName":"Blue Hen Chicken","photo":"assets/images/delaware_bluehenchicken.jpg","sound":"assets/audio/delaware_bluehenchicken.mp3","year":1939},
+		{"index":7,"state":"Florida","birdName":"Mockingbird","photo":"assets/images/florida_mockingbird.jpg","sound":"assets/audio/florida_mockingbird.mp3","year":1927},
 	];
 
 	// initalize variables and display opening screen to begin new game.
 
 	function newGame() {
 		// reset variables
-		wins = 0;
-		loses = 0;
-		outOfTimes = 0;
+		correctAnswers = 0;
+		incorrectAnswers = 0;
+		outOfTimeAnswers = 0;
 		questionsAsked = [];
 		numberQuestions = 0;
 		currentAnswers = [-1,-1,-1,-1];
@@ -109,7 +111,7 @@ $(document).ready(function(){
 	function outOfTime() {
 		clearInterval(counter);
 		remainingQuestionTime = 30;
-		outOfTimes++;
+		outOfTimeAnswers++;
 		answerResult = '<h1 class="text-center">Out Of Time</h1>';
 		answerAudio = new Audio('assets/audio/incorrectanswer.mp3');
 		resetAnswers();
@@ -147,9 +149,9 @@ $(document).ready(function(){
 	
 	function quizResults() {
 		newHtml = '<h1 class="text-center">Quiz Results</h1>';
-		newHtml = newHtml + '<h3 class="text-center">Wins: '+wins+'.</h3>';
-		newHtml = newHtml + '<h3 class="text-center">Loses: '+loses+'.</h3>';
-		newHtml = newHtml + '<h3 class="text-center">Out Of Time: '+outOfTimes+'.</h3>';
+		newHtml = newHtml + '<h3 class="text-center">Correct Answers: '+correctAnswers+'.</h3>';
+		newHtml = newHtml + '<h3 class="text-center">Incorrect Answers: '+incorrectAnswers+'.</h3>';
+		newHtml = newHtml + '<h3 class="text-center">Out Of Time Answers: '+outOfTimeAnswers+'.</h3>';
 		$('#question').html(newHtml);	
 		setTimeout(newQuizTimer, 1000 * 5);		
 	}
@@ -185,11 +187,11 @@ $(document).ready(function(){
 		remainingQuestionTime = 30;
 		playerAnswer = $(this).attr("data-index");
 		if(currentQuestionAnswer == playerAnswer) {
-			wins++;
+			correctAnswers++;
 			answerResult = '<h1 class="text-center">Correct Answer</h1>';
 			answerAudio = new Audio('assets/audio/correctanswer.mp3');
 		} else {
-			loses++;
+			incorrectAnswers++;
 			answerResult = '<h1 class="text-center">Incorrect Answer</h1>';
 			answerAudio = new Audio('assets/audio/incorrectanswer.mp3');
 		};
