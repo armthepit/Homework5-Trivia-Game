@@ -4,9 +4,9 @@ $(document).ready(function(){
 
 	var wins = 0;
 	var loses = 0;
-	var outoftimes = 0;
+	var outOfTimes = 0;
 	var questionsAsked = [];
-	var numberQuestions = 1;
+	var numberQuestions = 0;
 	var currentQuestionAnswer = 0;
 	var currentAnswers = [-1,-1,-1,-1];
 	var playerAnswer = -1;
@@ -47,7 +47,7 @@ $(document).ready(function(){
 	function question() {
 		// Increment number of questions asked
 		numberQuestions++;
-		if (numberQuestions < bird.length) {
+		if (numberQuestions < bird.length + 1) {
 
 
 			// Random number to find the next question. Compare to verify question not asked before.
@@ -77,6 +77,8 @@ $(document).ready(function(){
 				$(currid).html(newHtml);
 				$(currid).attr({'data-index': bird[currentAnswers[i]].index});
 			};
+		} else {
+			quizResults();
 		}
 	}
 
@@ -105,6 +107,16 @@ $(document).ready(function(){
 
 	function nextQuestionTimer() {
 		question();
+	}
+
+	// Quiz Results
+	
+	function quizResults() {
+		newHtml = '<h1 class="text-center">Quiz Results</h1>';
+		newHtml = newHtml + '<h3 class="text-center">Wins: '+wins+'.</h3>';
+		newHtml = newHtml + '<h3 class="text-center">Loses: '+loses+'.</h3>';
+		newHtml = newHtml + '<h3 class="text-center">Out Of Time: '+outOfTimes+'.</h3>';
+		$('#question').html(newHtml);			
 	}
  
 
