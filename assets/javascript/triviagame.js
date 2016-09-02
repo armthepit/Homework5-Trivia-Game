@@ -35,7 +35,7 @@ $(document).ready(function(){
 		numberQuestions = 0;
 		currentAnswers = [-1,-1,-1,-1];
 
-		//redraw intro screen
+		//intro screen
 		newHtml = '<img src="assets/images/usa_baldeagle.jpg" alt="Bald Eagle" class="center-block img-responsive img-rounded">';
 		newHtml = newHtml + '<h1 class="text-center">Think you know you\'re state birds?</h1>';
 		newHtml = newHtml + '<h2 class="text-center">Take our quiz to find out.</h2>';
@@ -92,15 +92,12 @@ $(document).ready(function(){
 
 	// Show Answer
 	function showAnswer () {
-		$('#question').html(answerResult);
-		$('#answer0').attr({'data-index': currentQuestionAnswer});
-		newHtml = '<img src="'+bird[currentQuestionAnswer].photo+'" alt="'+bird[currentQuestionAnswer].birdName+'" class="thumbnail center-block">';			
+
+		newHtml = answerResult + '<img src="'+bird[currentQuestionAnswer].photo+'" alt="'+bird[currentQuestionAnswer].birdName+'" class="center-block img-responsive img-rounded">';
 		newHtml = newHtml + '<h3 class="text-center">'+bird[currentQuestionAnswer].birdName+'</h3>';
-		newHtml = newHtml + '<audio id="sound_'+currentQuestionAnswer+'"><source src="'+bird[currentQuestionAnswer].sound+'" preload="auto"></audio>';
-		$('#answer0').html(newHtml);
-		newHtml = '<h3>Official State Bird of'+bird[currentQuestionAnswer].state+'</h3>';
-		newHtml = '<p class="text-left">The '+bird[currentQuestionAnswer].birdName+' was designated the official state bird of '+bird[currentQuestionAnswer].state+' in '+bird[currentQuestionAnswer].year+'.</p>';
-		$('#answer1').html(newHtml);
+		newHtml = newHtml + '<p class="text-center">The '+bird[currentQuestionAnswer].birdName+' was designated the official state bird of '+bird[currentQuestionAnswer].state+' in '+bird[currentQuestionAnswer].year+'.</p>';
+		$('#question').html(newHtml);		
+
 		/*question();*/
 	}
 
@@ -128,10 +125,10 @@ $(document).ready(function(){
 		playerAnswer = $(this).attr("data-index");
 		if(currentQuestionAnswer == playerAnswer) {
 			wins++;
-			answerResult = '<h1 class="text-center">Congratulations! Correct Answer</h1>';
+			answerResult = '<h1 class="text-center">Correct Answer</h1>';
 		} else {
 			loses++;
-			answerResult = '<h1 class="text-center">Condolences! Incorrect Answer</h1>';
+			answerResult = '<h1 class="text-center">Incorrect Answer</h1>';
 		};
 		resetAnswers();
 	});		
