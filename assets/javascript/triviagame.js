@@ -97,9 +97,16 @@ $(document).ready(function(){
 		newHtml = newHtml + '<h3 class="text-center">'+bird[currentQuestionAnswer].birdName+'</h3>';
 		newHtml = newHtml + '<p class="text-center">The '+bird[currentQuestionAnswer].birdName+' was designated the official state bird of '+bird[currentQuestionAnswer].state+' in '+bird[currentQuestionAnswer].year+'.</p>';
 		$('#question').html(newHtml);		
-
-		/*question();*/
+		setTimeout(nextQuestionTimer, 1000 * 5);
+		
 	}
+
+	// Next Question Timer
+
+	function nextQuestionTimer() {
+		question();
+	}
+ 
 
 	// check to begin quiz
 
