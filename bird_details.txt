@@ -6,3 +6,5 @@
 {"index":5,"state":"Connecticut","birdName":"American Robin","photo":"assets/images/connecticut_americanrobin.jpg","sound":"assets/audio/connecticut_americanrobin.mp3","year":1931},
 {"index":6,"state":"Delaware","birdName":"Blue Hen Chicken","photo":"assets/images/delaware_bluehenchicken.jpg","sound":assets/audio/delaware_bluehenchicken.mp3","year":1939},
 {"index":7,"state":"Florida","birdName":"Mockingbird","photo":"assets/images/florida_mockingbird.jpg","sound":"assets/audio/florida_mockingbird.mp3","year":1927},
+{"index":8,"state":"Georgia","birdName":"Brown Thrasher","photo":"assets/images/georgia_brownthrasher.jpg","sound":"assets/images/georgia_brownthrasher.mp3","year":1935},
+{"index":9,"state":"Hawaii","birdName":"Nene","photo":"hawaii_nene.jpg","sound":"hawaii_nene.mp3","year":1957}

@@ -7,7 +7,7 @@ $(document).ready(function(){
 	var outOfTimeAnswers = 0;
 	var questionsAsked = [];
 	var numberQuestions = 0;
-	var remainingQuestionTime = 30;
+	var remainingQuestionTime = 31;
 	var counter = 0;
 	var currentQuestionAnswer = 0;
 	var currentAnswers = [-1,-1,-1,-1];
@@ -27,6 +27,8 @@ $(document).ready(function(){
 		{"index":5,"state":"Connecticut","birdName":"American Robin","photo":"assets/images/connecticut_americanrobin.jpg","sound":"assets/audio/connecticut_americanrobin.mp3","year":1931},
 		{"index":6,"state":"Delaware","birdName":"Blue Hen Chicken","photo":"assets/images/delaware_bluehenchicken.jpg","sound":"assets/audio/delaware_bluehenchicken.mp3","year":1939},
 		{"index":7,"state":"Florida","birdName":"Mockingbird","photo":"assets/images/florida_mockingbird.jpg","sound":"assets/audio/florida_mockingbird.mp3","year":1927},
+		{"index":8,"state":"Georgia","birdName":"Brown Thrasher","photo":"assets/images/georgia_brownthrasher.jpg","sound":"assets/images/georgia_brownthrasher.mp3","year":1935},
+		{"index":9,"state":"Hawaii","birdName":"Nene","photo":"assets/images/hawaii_nene.jpg","sound":"assets/audio/hawaii_nene.mp3","year":1957}
 	];
 
 	// initalize variables and display opening screen to begin new game.
@@ -110,7 +112,7 @@ $(document).ready(function(){
 
 	function outOfTime() {
 		clearInterval(counter);
-		remainingQuestionTime = 30;
+		remainingQuestionTime = 31;
 		outOfTimeAnswers++;
 		answerResult = '<h1 class="text-center">Out Of Time</h1>';
 		answerAudio = new Audio('assets/audio/incorrectanswer.mp3');
