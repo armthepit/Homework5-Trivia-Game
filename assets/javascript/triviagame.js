@@ -28,7 +28,12 @@ $(document).ready(function(){
 		{"index":6,"state":"Delaware","birdName":"Blue Hen Chicken","photo":"assets/images/delaware_bluehenchicken.jpg","sound":"assets/audio/delaware_bluehenchicken.mp3","year":1939},
 		{"index":7,"state":"Florida","birdName":"Mockingbird","photo":"assets/images/florida_mockingbird.jpg","sound":"assets/audio/florida_mockingbird.mp3","year":1927},
 		{"index":8,"state":"Georgia","birdName":"Brown Thrasher","photo":"assets/images/georgia_brownthrasher.jpg","sound":"assets/images/georgia_brownthrasher.mp3","year":1935},
-		{"index":9,"state":"Hawaii","birdName":"Nene","photo":"assets/images/hawaii_nene.jpg","sound":"assets/audio/hawaii_nene.mp3","year":1957}
+		{"index":9,"state":"Hawaii","birdName":"Nene","photo":"assets/images/hawaii_nene.jpg","sound":"assets/audio/hawaii_nene.mp3","year":1957},
+		{"index":10,"state":"Idaho","birdName":"Peregrine Falcon","photo":"assets/images/idaho_peregrinefalcon.jpg","sound":"assets/audio/idaho_peregrinefalcon.mp3","year":2004},
+		{"index":11,"state":"Illinois","birdName":"Northern Cardinal","photo":"assets/images/illinois_northerncardinal.jpg","sound":"assets/audio/illinois_northerncardinal.mp3","year":1929},
+		{"index":12,"state":"Indiana","birdName":"Northern Cardinal","photo":"assets/images/indiana_northerncardinal.jpg","sound":"assets/audio/indiana_northerncardinal.mp3","year":1933},
+		{"index":13,"state":"Iowa","birdName":"Eastern Gold Finch","photo":"assets/images/iowa_easterngoldfinch.jpg","sound":"assets/audio/iowa_easterngoldfinch.mp3","year":1933},
+		{"index":14,"state":"Kanasa","birdName":"Western Meadowlark","photo":"assets/images/kansas_westernmeadowlark.jpg","sound":"assets/audio/kansas_westernmeadowlark.mp3","year":1933}
 	];
 
 	// initalize variables and display opening screen to begin new game.
@@ -56,7 +61,7 @@ $(document).ready(function(){
 	function question() {
 		// Increment number of questions asked
 		numberQuestions++;
-		if (numberQuestions < bird.length + 1) {
+		if (numberQuestions < 11) {
 			// Random number to find the next question. Compare to verify question not asked before.
 			do {
 				currentQuestionAnswer = Math.round(Math.random()*(bird.length-1)); 
