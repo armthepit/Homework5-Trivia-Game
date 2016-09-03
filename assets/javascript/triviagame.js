@@ -90,7 +90,7 @@ $(document).ready(function(){
 		}
 	}
 
-	//Sets the 30sec time for each question
+	//Sets the 31sec time for each question
     function questionTimer(){
         counter = setInterval(countdown, 1000);
     }	
@@ -186,7 +186,7 @@ $(document).ready(function(){
 	
 	$(document).on('click','.answer', function() {
 		clearInterval(counter);
-		remainingQuestionTime = 30;
+		remainingQuestionTime = 31;
 		playerAnswer = $(this).attr("data-index");
 		if(currentQuestionAnswer == playerAnswer) {
 			correctAnswers++;
